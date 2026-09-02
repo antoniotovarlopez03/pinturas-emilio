@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Paleta cerrada a propósito: solo estos colores en toda la web.
+     Contraste comprobado contra --color-fondo: 8.3:1 (AAA incluso para
+     texto normal). Título y texto comparten valor a propósito: el encargo
+     fue "de fondo este, para letras este", sin distinguir los dos. */
+  --color-fondo: #250902;
+  --color-titulo: #d4a373;
+  --color-texto: #d4a373;
+
+  /* Tipografías (se inyectan desde next/font en app/layout.tsx) */
+  --font-display: var(--fuente-display), 'Playfair Display', Georgia, serif;
+  --font-sans: var(--fuente-sans), 'Outfit', system-ui, sans-serif;
+
+  --ease-suave: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Carrusel "modo vídeo" (mismo patrón que en Arte y Cera).
+
+   «deriva» es un acercamiento lentísimo sobre la foto activa: da la
+   sensación de que respira en vez de quedarse clavada. Va del 1 al 1,06
+   en toda la duración de la diapositiva, así que no se ve moverse: se
+   nota. «progreso» rellena la barrita de la foto activa, para que se sepa
+   cuánto falta para el cambio.
+
+   Las dos se paran solas con prefers-reduced-motion (regla de abajo). */
+@keyframes deriva {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes progreso {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-titulo);
+  outline-offset: 2px;
+}

@@ -1,0 +1,47 @@
+{
+  "name": "pinturas-emilio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Web de Pinturas Emilio — empresa de pintura",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "catalogo:generar": "node scripts/generar-catalogo.mjs",
+    "media:recuperar": "node scripts/recuperar-originales.mjs",
+    "media:auditar": "node scripts/auditar-media.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "next": "16.2.12",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "resend": "6.18.1",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@eslint/eslintrc": "3.3.6",
+    "@playwright/test": "1.62.0",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "24.13.3",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.2.12",
+    "prettier": "3.9.6",
+    "sharp": "0.35.3",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
+  }
+}
