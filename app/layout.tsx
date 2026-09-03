@@ -30,6 +30,16 @@ export const metadata: Metadata = {
     template: `%s · ${site.nombre}`,
   },
   description: site.descripcion,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'es_ES',
+    url: site.url,
+    siteName: site.nombre,
+    title: site.titulo,
+    description: site.descripcion,
+  },
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RaizLayout({
