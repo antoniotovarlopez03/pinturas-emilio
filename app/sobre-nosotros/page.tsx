@@ -21,7 +21,13 @@ export default function PaginaSobreNosotros() {
           que garantiza que se lea pase lo que pase debajo. */}
       <h1 className="sr-only">Sobre nosotros</h1>
 
-      <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+      {/* En pantallas anchas el texto cabe sobre el tercio de abajo de la
+          foto (aspect-[3/4] fijo, texto anclado abajo). En móvil el mismo
+          texto ocupa muchas más líneas: si se mantuviera la altura fija se
+          cortaría por arriba, así que ahí el bloque de texto vuelve al flujo
+          normal y es él quien decide la altura de la foto (que le sigue por
+          detrás con object-cover, sin recortarse). */}
+      <div className="relative overflow-hidden rounded-lg sm:aspect-[3/4]">
         <Image
           src="/images/trabajos/interior-techo.jpg"
           alt="Emilio pintando el techo de una vivienda"
@@ -30,11 +36,12 @@ export default function PaginaSobreNosotros() {
           sizes="(min-width: 640px) 672px, 100vw"
           className="object-cover blur-[2px]"
         />
+        <div aria-hidden="true" className="absolute inset-0 bg-fondo/55 sm:hidden" />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-fondo/75 via-fondo/15 to-transparent"
+          className="absolute inset-0 hidden bg-gradient-to-t from-fondo/75 via-fondo/15 to-transparent sm:block"
         />
-        <div className="absolute inset-x-0 bottom-0 space-y-4 p-6 sm:p-8">
+        <div className="relative space-y-4 p-6 sm:absolute sm:inset-x-0 sm:bottom-0 sm:p-8">
           {SOBRE_NOSOTROS.parrafos.map((parrafo) => (
             <p
               key={parrafo}

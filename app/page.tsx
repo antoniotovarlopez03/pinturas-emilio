@@ -61,7 +61,7 @@ export default function PaginaInicio() {
           esta sección, con otro formato. Ahora es todo uno, con el ancla
           para que el enlace "Servicios" del menú apunte aquí. */}
       <section id="servicios" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-stretch">
           <div>
             <h2 className="text-2xl font-semibold text-titulo sm:text-3xl">
               Reparamos y pintamos

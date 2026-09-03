@@ -40,7 +40,7 @@ export function Carrusel() {
 
   return (
     <div
-      className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-lg bg-fondo lg:mx-0"
+      className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-lg bg-fondo lg:mx-0 lg:aspect-auto lg:h-full"
       onMouseEnter={() => setPausado(true)}
       onMouseLeave={() => setPausado(false)}
     >
