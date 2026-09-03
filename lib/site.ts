@@ -8,10 +8,11 @@ export const site = {
   descripcion:
     'Pintura interior y exterior, reparación de grietas y fisuras, y acabados decorativos. Trabajo limpio y garantizado en Granada y alrededores.',
 
-  // Todavía no hay dominio propio ni web publicada de verdad: esto es un
-  // marcador mientras se despliega, igual que arte-y-cera.vercel.app lo fue
-  // para ese proyecto antes de arteycera.es. Cambiar en cuanto haya dominio.
-  url: 'https://pinturas-emilio.vercel.app',
+  // www, no el dominio pelado: el ápex redirige (308) a este en Vercel,
+  // y esa es la URL de la que salen el canonical y el og:image.
+  url: 'https://www.pinturasgranadaemilio.es',
+
+  email: 'contacto@pinturasgranadaemilio.es',
 
   /**
    * Solo dígitos, como lo quiere wa.me. Confirmado con la ropa de trabajo
