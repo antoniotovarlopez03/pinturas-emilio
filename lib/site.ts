@@ -34,3 +34,8 @@ export function whatsappUrl(mensaje?: string): string {
   const base = `https://wa.me/${site.whatsapp}`;
   return mensaje ? `${base}?text=${encodeURIComponent(mensaje)}` : base;
 }
+
+/** mailto con asunto preparado, para quien no use WhatsApp. */
+export function mailtoUrl(asunto: string): string {
+  return `mailto:${site.email}?${new URLSearchParams({ subject: asunto }).toString()}`;
+}

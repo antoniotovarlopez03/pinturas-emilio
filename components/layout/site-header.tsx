@@ -6,6 +6,7 @@ const ENLACES = [
   { href: '/', etiqueta: 'Inicio' },
   { href: '/#servicios', etiqueta: 'Servicios' },
   { href: '/sobre-nosotros', etiqueta: 'Sobre nosotros' },
+  { href: '/contacto', etiqueta: 'Contacto' },
 ];
 
 export function SiteHeader() {

@@ -34,6 +34,9 @@ export function SiteFooter() {
           <Link href="/sobre-nosotros" className="hover:text-titulo">
             Sobre nosotros
           </Link>
+          <Link href="/contacto" className="hover:text-titulo">
+            Contacto
+          </Link>
         </nav>
 
         <div className="text-sm">
@@ -42,9 +45,12 @@ export function SiteFooter() {
             href={whatsappUrl('Hola, quería pedir presupuesto')}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-block font-medium text-titulo hover:underline"
+            className="mt-2 block font-medium text-titulo hover:underline"
           >
             WhatsApp: {site.whatsappVisible}
+          </a>
+          <a href={`mailto:${site.email}`} className="mt-1 block text-texto/70 hover:text-titulo">
+            {site.email}
           </a>
         </div>
       </div>
