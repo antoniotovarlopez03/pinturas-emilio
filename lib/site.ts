@@ -24,6 +24,9 @@ export const site = {
   whatsappVisible: '697 579 982',
 
   zona: 'Granada y alrededores',
+
+  /** Enlace directo al formulario de reseña de Google (Perfil de Empresa). */
+  enlaceResena: 'https://g.page/r/Ce4OITvQ4rHjEBM/review',
 } as const;
 
 /**

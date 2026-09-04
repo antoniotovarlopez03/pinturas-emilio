@@ -52,6 +52,14 @@ export function SiteFooter() {
           <a href={`mailto:${site.email}`} className="mt-1 block text-texto/70 hover:text-titulo">
             {site.email}
           </a>
+          <a
+            href={site.enlaceResena}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 block text-texto/70 hover:text-titulo"
+          >
+            Danos tu opinión en Google
+          </a>
         </div>
       </div>
     </footer>
