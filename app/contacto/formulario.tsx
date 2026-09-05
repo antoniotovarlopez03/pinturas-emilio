@@ -50,7 +50,7 @@ export function FormularioContacto() {
               href={whatsappUrl('Hola, os escribo desde la web de Pinturas Emilio.')}
               target="_blank"
               rel="noopener"
-              className="rounded-sm bg-titulo px-5 py-2.5 text-sm font-medium text-fondo transition-opacity hover:opacity-90"
+              className="rounded-full bg-acento px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-acento-oscuro"
             >
               WhatsApp
             </a>
@@ -126,7 +126,7 @@ export function FormularioContacto() {
       <button
         type="submit"
         disabled={enviando}
-        className="w-full rounded-sm bg-titulo px-6 py-3 font-medium text-fondo transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="w-full rounded-full bg-acento px-6 py-3 font-medium text-white transition-colors hover:bg-acento-oscuro disabled:opacity-60"
       >
         {enviando ? 'Enviando…' : 'Enviar mensaje'}
       </button>

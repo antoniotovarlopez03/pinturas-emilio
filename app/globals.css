@@ -5,9 +5,15 @@
      Contraste comprobado contra --color-fondo: 8.3:1 (AAA incluso para
      texto normal). Título y texto comparten valor a propósito: el encargo
      fue "de fondo este, para letras este", sin distinguir los dos. */
-  --color-fondo: #250902;
-  --color-titulo: #d4a373;
-  --color-texto: #d4a373;
+  --color-fondo: #10161d;
+  --color-titulo: #f5f0e8;
+  --color-texto: #a9b4bd;
+  --color-acento: #f2a93b;
+  --color-acento-oscuro: #d18f1f;
+  --color-acento-claro: #3a2f1c;
+  --color-azul: #38bdf8;
+  --color-verde: #2dd4bf;
+  --color-coral: #ff6b4a;
 
   /* Tipografías (se inyectan desde next/font en app/layout.tsx) */
   --font-display: var(--fuente-display), 'Playfair Display', Georgia, serif;
@@ -57,6 +63,7 @@ body {
   background: var(--color-fondo);
   color: var(--color-texto);
   font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
 h1,
@@ -68,6 +75,6 @@ h3 {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-titulo);
+  outline: 2px solid var(--color-acento);
   outline-offset: 2px;
 }

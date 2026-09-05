@@ -15,7 +15,7 @@ export default function NoEncontrada() {
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Link
           href="/"
-          className="rounded-sm bg-titulo px-6 py-3 font-medium text-fondo transition-opacity hover:opacity-90"
+          className="rounded-full bg-acento px-6 py-3 font-medium text-white transition-colors hover:bg-acento-oscuro"
         >
           Volver al inicio
         </Link>
