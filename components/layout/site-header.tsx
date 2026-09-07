@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { site, whatsappUrl } from '@/lib/site';
@@ -17,26 +18,15 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-texto/10 bg-fondo text-texto">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-azul p-2.5">
-            <span
-              aria-hidden="true"
-              className="h-full w-full bg-white"
-              style={{
-                maskImage: "url('/images/logo-transparente.png')",
-                maskSize: 'cover',
-                maskPosition: 'center',
-                maskRepeat: 'no-repeat',
-                WebkitMaskImage: "url('/images/logo-transparente.png')",
-                WebkitMaskSize: 'cover',
-                WebkitMaskPosition: 'center',
-                WebkitMaskRepeat: 'no-repeat',
-              }}
-            />
-          </span>
-          <span className="text-lg font-semibold tracking-wide">
-            Pinturas <span className="text-azul">Emilio</span>
-          </span>
+        <Link href="/" className="flex shrink-0 items-center">
+          <Image
+            src="/images/logo-nuevo-recortado.png"
+            alt={site.nombre}
+            width={154}
+            height={112}
+            priority
+            className="h-16 w-auto"
+          />
         </Link>
 
         <nav

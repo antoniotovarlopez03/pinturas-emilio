@@ -1,19 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Paleta cerrada a propósito: solo estos colores en toda la web.
-     Contraste comprobado contra --color-fondo: 8.3:1 (AAA incluso para
-     texto normal). Título y texto comparten valor a propósito: el encargo
-     fue "de fondo este, para letras este", sin distinguir los dos. */
-  --color-fondo: #10161d;
-  --color-titulo: #f5f0e8;
-  --color-texto: #a9b4bd;
-  --color-acento: #f2a93b;
-  --color-acento-oscuro: #d18f1f;
-  --color-acento-claro: #3a2f1c;
-  --color-azul: #38bdf8;
-  --color-verde: #2dd4bf;
-  --color-coral: #ff6b4a;
+  /* Vuelta al estilo claro (crema + verde salvia) de las primeras
+     versiones, sustituyendo al "editorial oscuro" de v10. */
+  --color-fondo: #f4f1e9;
+  --color-titulo: #171c18;
+  --color-texto: #5c6660;
+  --color-acento: #5e7358;
+  --color-acento-oscuro: #47593f;
+  --color-acento-claro: #e8ece2;
 
   /* Tipografías (se inyectan desde next/font en app/layout.tsx) */
   --font-display: var(--fuente-display), 'Playfair Display', Georgia, serif;

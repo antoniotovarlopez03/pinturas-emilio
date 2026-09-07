@@ -7,13 +7,13 @@ export function SiteFooter() {
     <footer className="border-t border-texto/10 bg-fondo text-texto">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
         <div>
-          <div className="relative h-20 w-20">
+          <div className="relative h-24 w-36">
             <Image
-              src="/images/logo-transparente.png"
+              src="/images/logo-nuevo-recortado.png"
               alt={`Logotipo de ${site.nombre}`}
               fill
-              sizes="80px"
-              className="object-contain"
+              sizes="144px"
+              className="object-contain object-left"
             />
           </div>
           <p className="mt-3 text-lg font-semibold text-titulo">{site.nombre}</p>
