@@ -9,6 +9,7 @@ const FOTOS = [
   { archivo: 'exterior-villa-2.jpg', alt: 'Fachada de vivienda en Granada, en obra' },
   { archivo: 'exterior-villa-3.jpg', alt: 'Fachada de vivienda terminada, en color terracota' },
   { archivo: 'instalacion-papel-tropical.jpg', alt: 'Instalando papel pintado de hojas tropicales' },
+  { archivo: 'interior-vigas-madera.jpg', alt: 'Pintando una pared bajo un techo de vigas de madera' },
 ];
 
 /** Segundos por foto, igual que en Arte y Cera: para que el "modo vídeo" se

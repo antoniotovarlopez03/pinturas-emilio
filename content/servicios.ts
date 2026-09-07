@@ -19,9 +19,9 @@ export const SERVICIOS = [
       'Pintamos interiores y exteriores con materiales de calidad y acabados impecables.',
   },
   {
-    slug: 'resane-alisado-y-acabados',
-    nombre: 'Resane, alisado y acabados',
+    slug: 'enmasillado-alisado-y-acabados',
+    nombre: 'Enmasillado, alisado y acabados',
     resumen:
-      'Resane y alisado profesional para dejar tus paredes perfectas, con un trabajo limpio, responsable y garantizado.',
+      'Enmasillado y alisado profesional para dejar tus paredes perfectas, con un trabajo limpio, responsable y garantizado.',
   },
 ] as const;
