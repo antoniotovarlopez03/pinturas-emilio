@@ -1,3 +1,5 @@
+import { site } from '@/lib/site';
+
 /**
  * Texto de "Sobre nosotros". Antes estaba a `null` porque en la web de
  * WordPress esa página todavía tenía Lorem Ipsum y no había nada real que
@@ -11,6 +13,6 @@ export const SOBRE_NOSOTROS = {
     'Más de 15 años pintando y reparando paredes en Granada y alrededores. En cada encargo, el mismo cuidado: los materiales adecuados, un trabajo limpio y un acabado que dura.',
     'Grietas y fisuras, interiores y exteriores, resanes y acabados decorativos, en viviendas particulares y también en locales y espacios comerciales.',
     'El objetivo es siempre el mismo, tanto en una habitación como en una fachada entera: un acabado cuidado, hecho con calma y sin dejar nada a medias.',
-    '¿Tienes algo que pintar o reparar? Escríbenos por WhatsApp y te contamos cómo lo haríamos.',
+    `¿Tienes algo que pintar o reparar? Escríbenos por WhatsApp o al correo ${site.email} y te contamos cómo lo haríamos.`,
   ],
 } as const;
