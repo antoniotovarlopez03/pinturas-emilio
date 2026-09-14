@@ -54,15 +54,8 @@
   }
 }
 
-/* Fondo de fotografía de pared pintada (prueba visual): de ambiente, fija
-   al viewport para que no se note el corte entre secciones al hacer scroll. */
 body {
-  background-color: var(--color-fondo);
-  background-image: url('/images/textura-pintura.webp');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: var(--color-fondo);
   color: var(--color-texto);
   font-family: var(--font-sans);
   overflow-x: hidden;
