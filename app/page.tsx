@@ -64,10 +64,8 @@ export default function PaginaInicio() {
               limpio y responsable.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <a
-                href={whatsappUrl('Hola, quería pedir presupuesto')}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contacto"
                 className="inline-flex items-center gap-2 rounded-full bg-acento px-6 py-3 font-medium text-white transition-colors hover:bg-acento-oscuro"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
@@ -76,7 +74,7 @@ export default function PaginaInicio() {
                   <rect x="6" y="13" width="6" height="7" rx="1" />
                 </svg>
                 Pide presupuesto sin compromiso
-              </a>
+              </Link>
               <Link
                 href="#servicios"
                 className="inline-flex items-center gap-2 rounded-full border border-titulo/20 px-6 py-3 font-medium text-titulo transition-colors hover:bg-titulo/5"
@@ -177,17 +175,15 @@ export default function PaginaInicio() {
           <div>
             <h3 className="text-xl font-semibold text-titulo">¿Qué necesitas pintar?</h3>
             <p className="mt-1 text-texto/70">
-              Cuéntanoslo por WhatsApp y te decimos cómo lo hacemos.
+              Cuéntanoslo por WhatsApp o por correo y te decimos cómo lo hacemos.
             </p>
           </div>
-          <a
-            href={whatsappUrl('Hola, quería pedir presupuesto')}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contacto"
             className="shrink-0 rounded-full bg-acento px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-acento-oscuro"
           >
             Pide presupuesto sin compromiso
-          </a>
+          </Link>
         </div>
       </section>
 

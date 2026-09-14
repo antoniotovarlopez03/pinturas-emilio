@@ -206,7 +206,7 @@ export function cuerpoHtmlConfirmacionCliente(datos: Omit<DatosFormulario, 'tram
         <tr>
           <td style="padding:28px 32px;text-align:center;">
             <p style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:${COLOR.tinta};margin:0 0 18px;">
-              Si tu consulta es urgente también puedes escribirnos directamente por WhatsApp.
+              También puedes escribirnos por WhatsApp cuando prefieras.
             </p>
             ${boton('Hablar por WhatsApp', whatsappUrl(`Hola, os escribí desde la web (${datos.nombre}).`))}
           </td>
