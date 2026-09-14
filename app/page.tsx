@@ -90,7 +90,7 @@ export default function PaginaInicio() {
             </div>
           </div>
 
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-fondo">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
             <Image
               src="/images/emilio-retrato.png"
               alt="Emilio, pintor de Pinturas Emilio"
