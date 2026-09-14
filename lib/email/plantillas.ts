@@ -20,7 +20,7 @@ function urlImagenCorreo(ruta: string): string {
 
 const COLOR = {
   fondo: '#f4f1e9',
-  panel: '#ffffff',
+  panel: '#eceee5',
   panelSuave: '#e8ece2',
   tinta: '#171c18',
   texto: '#5c6660',
