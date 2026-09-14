@@ -56,8 +56,11 @@ export function SiteFooter() {
             href={site.enlaceResena}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 block text-texto/70 hover:text-titulo"
+            className="mt-3 inline-flex items-center gap-2 text-texto/70 hover:text-titulo"
           >
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
+              <path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6-5.9-3.3-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" />
+            </svg>
             Danos tu opinión en Google
           </a>
         </div>
