@@ -48,6 +48,14 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          <a
+            href={site.enlaceResena}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-sm border-b-2 border-transparent pb-0.5 transition-colors hover:text-titulo"
+          >
+            Déjanos tu reseña
+          </a>
         </nav>
 
         <Link
