@@ -45,6 +45,38 @@ const PARES = [
       alt: 'Pared curva con papel pintado de hojas tropicales',
     },
   },
+  {
+    titulo: 'Dormitorio',
+    antes: { archivo: 'antes-dormitorio.jpg', alt: 'Dormitorio con los muebles protegidos, antes de pintar' },
+    despues: {
+      archivo: 'despues-dormitorio.jpg',
+      alt: 'Dormitorio ya pintado y con la cama puesta',
+    },
+  },
+  {
+    titulo: 'Armario empotrado',
+    antes: { archivo: 'antes-armario.jpg', alt: 'Armario empotrado en madera natural, antes de pintar' },
+    despues: {
+      archivo: 'despues-armario.jpg',
+      alt: 'Armario empotrado pintado en blanco',
+    },
+  },
+  {
+    titulo: 'Reforma de baño',
+    antes: { archivo: 'antes-bano-2.jpg', alt: 'Baño en obra, con el alicatado recién puesto' },
+    despues: {
+      archivo: 'despues-bano-2.jpg',
+      alt: 'Baño terminado con papel de pared decorativo',
+    },
+  },
+  {
+    titulo: 'Fachada de la Iglesia de San Pedro',
+    antes: { archivo: 'antes-fachada-iglesia.jpg', alt: 'Fachada de la Iglesia de San Pedro antes de restaurar, con la pintura desconchada' },
+    despues: {
+      archivo: 'despues-fachada-iglesia.jpg',
+      alt: 'Fachada de la Iglesia de San Pedro ya restaurada y pintada de blanco',
+    },
+  },
 ];
 
 /** Los 6 pares aplanados en una sola lista, para que las flechas del visor
