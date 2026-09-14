@@ -176,6 +176,7 @@ export default function PaginaInicio() {
             src="/images/tejado.png"
             alt=""
             fill
+            unoptimized
             aria-hidden="true"
             sizes="(min-width: 1024px) 1152px, 100vw"
             className="object-cover object-[70%_30%] opacity-10"

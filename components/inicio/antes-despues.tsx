@@ -109,6 +109,7 @@ function Foto({
         src={`/images/trabajos/${archivo}`}
         alt={alt}
         fill
+        unoptimized
         sizes="(min-width: 640px) 33vw, 50vw"
         className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
@@ -226,6 +227,7 @@ export function AntesDespues() {
                 src={`/images/trabajos/${foto.archivo}`}
                 alt={foto.alt}
                 fill
+                unoptimized
                 sizes="90vw"
                 priority
                 className="object-contain"
