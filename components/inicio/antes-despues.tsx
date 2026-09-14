@@ -31,18 +31,25 @@ const PARES = [
   {
     titulo: 'Pared con papel tropical',
     // Estas dos vienen en horizontal (4:3), al revés que el resto: por eso
-    // este par pide su propio aspecto en vez del 3/4 de los demás. Ocupa
-    // fila completa (las 3 columnas) para salir grande y, sobre todo,
-    // porque con solo 2 columnas dejaba un hueco vacío al lado de "Fachada
-    // de vivienda" (3 pares sueltos + 1 que ocupa 2 columnas no encaja
-    // limpio en una rejilla de 2). Con 3 columnas, los 3 primeros llenan la
-    // fila entera y este empieza fila nueva sin dejar ningún hueco.
+    // este par pide su propio aspecto en vez del 3/4 de los demás. Ocupa 2
+    // de las 3 columnas para salir grande, y la columna que le sobra la
+    // rellena "Fachada de la Iglesia de San Pedro" (2+1=3, fila completa
+    // sin huecos). Si se añaden o quitan pares, revisar que los que van a
+    // ancho simple sigan sumando un múltiplo de 3 entre filas.
     aspecto: 'aspect-[4/3]',
-    ancho: 'sm:col-span-3',
+    ancho: 'sm:col-span-2',
     antes: { archivo: 'antes-papel-tropical.jpg', alt: 'Pared curva antes de empapelar, en liso' },
     despues: {
       archivo: 'despues-papel-tropical.jpg',
       alt: 'Pared curva con papel pintado de hojas tropicales',
+    },
+  },
+  {
+    titulo: 'Fachada de la Iglesia de San Pedro',
+    antes: { archivo: 'antes-fachada-iglesia.jpg', alt: 'Fachada de la Iglesia de San Pedro antes de restaurar, con la pintura desconchada' },
+    despues: {
+      archivo: 'despues-fachada-iglesia.jpg',
+      alt: 'Fachada de la Iglesia de San Pedro ya restaurada y pintada de blanco',
     },
   },
   {
@@ -69,17 +76,9 @@ const PARES = [
       alt: 'Baño terminado con papel de pared decorativo',
     },
   },
-  {
-    titulo: 'Fachada de la Iglesia de San Pedro',
-    antes: { archivo: 'antes-fachada-iglesia.jpg', alt: 'Fachada de la Iglesia de San Pedro antes de restaurar, con la pintura desconchada' },
-    despues: {
-      archivo: 'despues-fachada-iglesia.jpg',
-      alt: 'Fachada de la Iglesia de San Pedro ya restaurada y pintada de blanco',
-    },
-  },
 ];
 
-/** Los 6 pares aplanados en una sola lista, para que las flechas del visor
+/** Los pares aplanados en una sola lista, para que las flechas del visor
  *  puedan pasar de una foto a la siguiente sin importar de qué par sea. */
 const FOTOS = PARES.flatMap((par) => [
   { ...par.antes, etiqueta: 'Antes', titulo: par.titulo },
@@ -113,7 +112,11 @@ function Foto({
         sizes="(min-width: 640px) 33vw, 50vw"
         className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
-      <span className="absolute top-2 left-2 rounded-sm bg-fondo/80 px-2 py-1 text-xs font-medium text-texto uppercase">
+      <span
+        className={`absolute top-2 left-2 rounded-sm px-2 py-1 text-xs font-medium uppercase ${
+          etiqueta === 'Después' ? 'bg-acento text-white' : 'bg-fondo/80 text-texto'
+        }`}
+      >
         {etiqueta}
       </span>
     </button>
