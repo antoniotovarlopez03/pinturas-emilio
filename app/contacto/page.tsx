@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { FormularioContacto } from './formulario';
 import { site, whatsappUrl } from '@/lib/site';
 
@@ -10,8 +11,17 @@ export const metadata: Metadata = {
 export default function PaginaContacto() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <div className="grid gap-12 rounded-lg border border-texto/10 p-6 sm:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-        <div>
+      <div className="relative grid overflow-hidden gap-12 rounded-lg border border-texto/10 p-6 sm:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <Image
+          src="/images/tejado.png"
+          alt=""
+          fill
+          unoptimized
+          aria-hidden="true"
+          sizes="(min-width: 1024px) 1152px, 100vw"
+          className="object-cover object-[70%_30%] opacity-10"
+        />
+        <div className="relative">
           <p className="text-sm font-medium tracking-wide text-titulo uppercase">Hablemos</p>
           <h1 className="mt-3 text-4xl font-semibold text-titulo sm:text-5xl">
             ¿Tienes algo que pintar?
@@ -51,7 +61,7 @@ export default function PaginaContacto() {
           <p className="mt-8 text-sm text-texto/70">{site.zona}</p>
         </div>
 
-        <div className="rounded-lg border border-texto/10 bg-fondo p-6 sm:p-8">
+        <div className="relative rounded-lg border border-texto/10 bg-fondo p-6 sm:p-8">
           <FormularioContacto />
         </div>
       </div>
