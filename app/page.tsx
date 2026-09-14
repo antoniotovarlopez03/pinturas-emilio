@@ -173,7 +173,7 @@ export default function PaginaInicio() {
 
         <div className="relative mt-10 flex flex-col items-start gap-6 overflow-hidden rounded-lg border border-texto/10 p-8 sm:flex-row sm:items-center sm:justify-between">
           <Image
-            src="/images/tejado.png"
+            src="/images/tejado.jpg"
             alt=""
             fill
             unoptimized

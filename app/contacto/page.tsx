@@ -13,7 +13,7 @@ export default function PaginaContacto() {
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <div className="relative grid overflow-hidden gap-12 rounded-lg border border-texto/10 p-6 sm:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Image
-          src="/images/tejado.png"
+          src="/images/tejado.jpg"
           alt=""
           fill
           unoptimized
