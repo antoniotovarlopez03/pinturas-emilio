@@ -3,8 +3,8 @@
  * Si cambia un teléfono o un texto, se cambia aquí y se propaga a toda la web.
  */
 export const site = {
-  nombre: 'Pinturas Emilio',
-  titulo: 'Pinturas Emilio · Pintor profesional en Granada',
+  nombre: 'Pinturas Emilio Parra',
+  titulo: 'Pinturas Emilio Parra · Pintor profesional en Granada',
   descripcion:
     'Pintura interior y exterior, reparación de grietas y fisuras, y acabados decorativos. Trabajo limpio y garantizado en Granada y alrededores.',
 
