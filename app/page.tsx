@@ -171,17 +171,8 @@ export default function PaginaInicio() {
           </div>
         </div>
 
-        <div className="relative mt-10 flex flex-col items-start gap-6 overflow-hidden rounded-lg border border-texto/10 p-8 sm:flex-row sm:items-center sm:justify-between">
-          <Image
-            src="/images/tejado.jpg"
-            alt=""
-            fill
-            unoptimized
-            aria-hidden="true"
-            sizes="(min-width: 1024px) 1152px, 100vw"
-            className="object-cover object-[70%_30%] opacity-10"
-          />
-          <div className="relative">
+        <div className="mt-10 flex flex-col items-start gap-6 rounded-lg border border-texto/10 p-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
             <h3 className="text-xl font-semibold text-titulo">¿Qué necesitas pintar?</h3>
             <p className="mt-1 text-texto/70">
               Cuéntanoslo por WhatsApp o por correo y te decimos cómo lo hacemos.
@@ -189,7 +180,7 @@ export default function PaginaInicio() {
           </div>
           <Link
             href="/contacto"
-            className="relative shrink-0 rounded-full bg-acento px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-acento-oscuro"
+            className="shrink-0 rounded-full bg-acento px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-acento-oscuro"
           >
             Pide presupuesto sin compromiso
           </Link>
