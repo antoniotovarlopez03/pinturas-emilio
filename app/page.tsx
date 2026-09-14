@@ -56,7 +56,8 @@ export default function PaginaInicio() {
               Pintores en {site.zona}
             </p>
             <h1 className="mt-4 text-4xl font-semibold text-titulo sm:text-5xl lg:text-6xl">
-              Pintura interior y <span className="text-acento">exterior</span>
+              Pintura interior y <span className="text-acento">exterior</span> en
+              Granada
             </h1>
             <p className="mt-5 max-w-md text-texto">
               Acabados impecables, con materiales de calidad y un trabajo
@@ -135,11 +136,12 @@ export default function PaginaInicio() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-stretch">
           <div>
             <h2 className="text-2xl font-semibold text-titulo sm:text-3xl">
-              Reparamos y pintamos
+              Reparamos y pintamos en Granada
             </h2>
             <p className="mt-2 max-w-2xl text-texto/70">
               Devolvemos la vida a tus paredes con experiencia, calidad y
-              confianza.
+              confianza. Presupuesto sin compromiso para tu casa o negocio en
+              Granada y alrededores.
             </p>
 
             <div className="mt-8 grid gap-6">
