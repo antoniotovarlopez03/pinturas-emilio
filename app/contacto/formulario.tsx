@@ -132,7 +132,16 @@ export function FormularioContacto() {
       </button>
 
       <p className="text-center text-xs text-texto/70">
-        También puedes escribirnos por WhatsApp al {site.whatsappVisible}.
+        También puedes escribirnos por WhatsApp al{' '}
+        <a
+          href={whatsappUrl('Hola, os escribo desde la web de Pinturas Emilio.')}
+          target="_blank"
+          rel="noopener"
+          className="font-medium text-titulo underline decoration-titulo/40 underline-offset-4"
+        >
+          {site.whatsappVisible}
+        </a>
+        .
       </p>
     </form>
   );

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { site, whatsappUrl } from '@/lib/site';
+import { site } from '@/lib/site';
 
 const ENLACES = [
   { href: '/', etiqueta: 'Inicio' },
@@ -50,14 +50,12 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <a
-          href={whatsappUrl('Hola, quería pedir presupuesto')}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/contacto"
           className="rounded-full bg-acento px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-acento-oscuro"
         >
           Pedir presupuesto
-        </a>
+        </Link>
       </div>
     </header>
   );
