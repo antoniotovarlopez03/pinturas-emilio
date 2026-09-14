@@ -8,9 +8,10 @@ function urlImagenCorreo(ruta: string): string {
 }
 
 /* ============================================================
-   Plantillas de email en HTML, con la misma identidad que la web: solo
-   --color-fondo (marrón oscuro) y --color-titulo/--color-texto (el mismo
-   tono cálido), sin colores nuevos.
+   Plantillas de email en HTML, con la misma identidad que la web de
+   verdad: fondo crema, tinta casi negra para los títulos, verde como
+   acento (los mismos tonos que app/globals.css: --color-fondo,
+   --color-titulo, --color-texto, --color-acento-oscuro).
 
    Todo con tablas y estilos en línea porque es lo único que Outlook de
    escritorio soporta de verdad: no lee <style> de forma fiable ni
@@ -18,9 +19,13 @@ function urlImagenCorreo(ruta: string): string {
    ============================================================ */
 
 const COLOR = {
-  fondo: '#250902',
-  fondoSuave: '#3c2815',
-  texto: '#d4a373',
+  fondo: '#f4f1e9',
+  panel: '#ffffff',
+  panelSuave: '#e8ece2',
+  tinta: '#171c18',
+  texto: '#5c6660',
+  linea: '#17181c26',
+  acento: '#47593f',
 } as const;
 
 /** Nunca se interpola texto de quien rellena el formulario sin pasar por
@@ -42,14 +47,14 @@ function escaparHtmlConSaltos(valor: string): string {
 }
 
 function cabecera(): string {
-  const logo = urlImagenCorreo('/images/logo-transparente.png');
+  const logo = urlImagenCorreo('/images/logo-nuevo-recortado.png');
   return `
   <tr>
-    <td bgcolor="${COLOR.fondo}" style="background-color:${COLOR.fondo};border-radius:16px 16px 0 0;padding:36px 40px;">
+    <td bgcolor="${COLOR.fondo}" style="background-color:${COLOR.fondo};border-radius:16px 16px 0 0;padding:36px 40px 24px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td align="center">
-            <img src="${logo}" width="72" height="72" alt="Pinturas Emilio" style="display:block;margin:0 auto;border:0;">
+            <img src="${logo}" width="140" alt="Pinturas Emilio Parra" style="display:block;margin:0 auto;border:0;width:140px;height:auto;">
           </td>
         </tr>
       </table>
@@ -60,17 +65,17 @@ function cabecera(): string {
 function pie(): string {
   return `
   <tr>
-    <td bgcolor="${COLOR.fondo}" style="background-color:${COLOR.fondo};border-radius:0 0 16px 16px;padding:32px 40px;text-align:center;">
-      <div style="font-family:Georgia,'Times New Roman',serif;font-size:16px;color:${COLOR.texto};margin:0 0 10px;">Pinturas Emilio</div>
-      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:2;color:${COLOR.texto}bf;">
-        <a href="mailto:${site.email}" style="color:${COLOR.texto};text-decoration:none;">${site.email}</a>
+    <td bgcolor="${COLOR.acento}" style="background-color:${COLOR.acento};border-radius:0 0 16px 16px;padding:32px 40px;text-align:center;">
+      <div style="font-family:Georgia,'Times New Roman',serif;font-size:16px;color:${COLOR.fondo};margin:0 0 10px;">Pinturas Emilio Parra</div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:2;color:${COLOR.fondo}cc;">
+        <a href="mailto:${site.email}" style="color:${COLOR.fondo};text-decoration:none;">${site.email}</a>
         &nbsp;·&nbsp;
-        <a href="${site.url}" style="color:${COLOR.texto};text-decoration:none;">pinturasgranadaemilio.es</a>
+        <a href="${site.url}" style="color:${COLOR.fondo};text-decoration:none;">pinturasgranadaemilio.es</a>
         &nbsp;·&nbsp;
-        <a href="${whatsappUrl()}" style="color:${COLOR.texto};text-decoration:none;">WhatsApp</a>
+        <a href="${whatsappUrl()}" style="color:${COLOR.fondo};text-decoration:none;">WhatsApp</a>
       </div>
-      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:${COLOR.texto}73;margin-top:16px;">
-        © ${new Date().getFullYear()} Pinturas Emilio. ${site.zona}.
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:${COLOR.fondo}99;margin-top:16px;">
+        © ${new Date().getFullYear()} Pinturas Emilio Parra. ${site.zona}.
       </div>
     </td>
   </tr>`;
@@ -80,7 +85,7 @@ function boton(texto: string, href: string): string {
   return `
   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
     <tr>
-      <td align="center" bgcolor="${COLOR.texto}" style="background-color:${COLOR.texto};border-radius:999px;">
+      <td align="center" bgcolor="${COLOR.acento}" style="background-color:${COLOR.acento};border-radius:999px;">
         <a href="${escaparHtml(href)}" target="_blank" style="display:inline-block;padding:14px 30px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:${COLOR.fondo};text-decoration:none;letter-spacing:0.02em;">
           ${escaparHtml(texto)}
         </a>
@@ -94,16 +99,16 @@ function boton(texto: string, href: string): string {
 function filaDetalle(etiqueta: string, valorHtml: string, esUltima: boolean): string {
   return `
   <tr>
-    <td style="padding:14px 0;${esUltima ? '' : `border-bottom:1px solid ${COLOR.texto}30;`}">
-      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:${COLOR.texto}99;">${escaparHtml(etiqueta)}</div>
-      <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:${COLOR.texto};margin-top:4px;">${valorHtml}</div>
+    <td style="padding:14px 0;${esUltima ? '' : `border-bottom:1px solid ${COLOR.linea};`}">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:${COLOR.texto};">${escaparHtml(etiqueta)}</div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:${COLOR.tinta};margin-top:4px;">${valorHtml}</div>
     </td>
   </tr>`;
 }
 
 function tarjetaFilas(filas: string): string {
   return `
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid ${COLOR.texto}30;border-radius:14px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid ${COLOR.linea};border-radius:14px;background-color:${COLOR.panel};">
     <tr>
       <td style="padding:6px 24px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -121,8 +126,8 @@ function envoltura(preheader: string, contenido: string): string {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="color-scheme" content="dark">
-<meta name="supported-color-schemes" content="dark">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
 <!--[if mso]>
 <noscript>
 <xml>
@@ -149,7 +154,7 @@ function envoltura(preheader: string, contenido: string): string {
         <!--[if mso]>
         <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td>
         <![endif]-->
-        <table role="presentation" class="contenedor" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;border:1px solid ${COLOR.texto}20;border-radius:16px;">
+        <table role="presentation" class="contenedor" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;border:1px solid ${COLOR.linea};border-radius:16px;">
           ${contenido}
         </table>
         <!--[if mso]>
@@ -179,13 +184,13 @@ export function cuerpoHtmlConfirmacionCliente(datos: Omit<DatosFormulario, 'tram
   ${cabecera()}
   <tr>
     <td bgcolor="${COLOR.fondo}" class="pad-movil" style="background-color:${COLOR.fondo};padding:16px 40px 8px;">
-      <div style="font-family:Georgia,'Times New Roman',serif;font-size:26px;line-height:1.3;color:${COLOR.texto};margin:0 0 18px;text-align:center;">
-        Gracias por contactar con Pinturas Emilio.
+      <div style="font-family:Georgia,'Times New Roman',serif;font-size:26px;line-height:1.3;color:${COLOR.tinta};margin:0 0 18px;text-align:center;">
+        Gracias por contactar con Pinturas Emilio Parra.
       </div>
-      <p style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.7;color:${COLOR.texto}cc;margin:0 0 8px;">
+      <p style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.7;color:${COLOR.texto};margin:0 0 8px;">
         Hola ${escaparHtml(datos.nombre)}.
       </p>
-      <p style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.7;color:${COLOR.texto}cc;margin:0;">
+      <p style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.7;color:${COLOR.texto};margin:0;">
         Hemos recibido correctamente tu solicitud. Te contestamos en cuanto podamos para ayudarte con tu proyecto.
       </p>
     </td>
@@ -197,10 +202,10 @@ export function cuerpoHtmlConfirmacionCliente(datos: Omit<DatosFormulario, 'tram
   </tr>
   <tr>
     <td bgcolor="${COLOR.fondo}" class="pad-movil" style="background-color:${COLOR.fondo};padding:28px 40px 8px;">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${COLOR.fondoSuave};border-radius:14px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${COLOR.panelSuave};border-radius:14px;">
         <tr>
           <td style="padding:28px 32px;text-align:center;">
-            <p style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:${COLOR.texto};margin:0 0 18px;">
+            <p style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:${COLOR.tinta};margin:0 0 18px;">
               Si tu consulta es urgente también puedes escribirnos directamente por WhatsApp.
             </p>
             ${boton('Hablar por WhatsApp', whatsappUrl(`Hola, os escribí desde la web (${datos.nombre}).`))}
@@ -259,7 +264,7 @@ export function cuerpoHtmlNotificacionNegocio(
   ${cabecera()}
   <tr>
     <td bgcolor="${COLOR.fondo}" class="pad-movil" style="background-color:${COLOR.fondo};padding:16px 40px 8px;">
-      <div style="font-family:Georgia,'Times New Roman',serif;font-size:24px;line-height:1.3;color:${COLOR.texto};margin:0;text-align:center;">
+      <div style="font-family:Georgia,'Times New Roman',serif;font-size:24px;line-height:1.3;color:${COLOR.tinta};margin:0;text-align:center;">
         Ha llegado una nueva solicitud desde la web.
       </div>
     </td>
@@ -271,11 +276,11 @@ export function cuerpoHtmlNotificacionNegocio(
   </tr>
   <tr>
     <td bgcolor="${COLOR.fondo}" class="pad-movil" style="background-color:${COLOR.fondo};padding:8px 40px 8px;">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${COLOR.fondoSuave};border-radius:14px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${COLOR.panelSuave};border-radius:14px;">
         <tr>
           <td style="padding:24px 28px;">
-            <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:${COLOR.texto}99;margin:0 0 10px;">Mensaje</div>
-            <div style="font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.7;color:${COLOR.texto};">${escaparHtmlConSaltos(datos.mensaje)}</div>
+            <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:${COLOR.texto};margin:0 0 10px;">Mensaje</div>
+            <div style="font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.7;color:${COLOR.tinta};">${escaparHtmlConSaltos(datos.mensaje)}</div>
           </td>
         </tr>
       </table>
