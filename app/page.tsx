@@ -109,6 +109,18 @@ export default function PaginaInicio() {
                 </svg>
               </Link>
             </div>
+            <div className="mt-3">
+              <Link
+                href="#como-trabajamos"
+                className="inline-flex items-center gap-2 rounded-full border border-titulo/20 px-6 py-3 font-medium text-titulo transition-colors hover:bg-titulo/5"
+              >
+                Cómo trabajamos
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </Link>
+            </div>
           </div>
 
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-fondo">
@@ -210,7 +222,7 @@ export default function PaginaInicio() {
         </div>
       </section>
 
-      <section className="border-t border-titulo/10 bg-acento-claro/40">
+      <section id="como-trabajamos" className="border-t border-titulo/10 bg-acento-claro/40">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl font-semibold text-titulo sm:text-3xl">
