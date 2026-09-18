@@ -46,6 +46,29 @@ const VENTAJAS = [
   },
 ] as const;
 
+const PROCESO = [
+  {
+    titulo: 'Valoración y presupuesto sin compromiso',
+    texto:
+      'Evaluamos las paredes, habitaciones o áreas que deseas pintar, cambiar o remodelar. Te ofrecemos un presupuesto detallado sin ninguna obligación por tu parte; tú decides cuándo dar el siguiente paso.',
+  },
+  {
+    titulo: 'Ejecución personalizada y guiada',
+    texto:
+      'Nos encargamos de llevar todos los materiales necesarios para iniciar la obra. Durante el proceso mantenemos una comunicación constante para asegurar tu conformidad, adaptándonos en todo momento a tus necesidades, sugerencias y presupuesto.',
+  },
+  {
+    titulo: 'Asesoramiento profesional',
+    texto:
+      'Si no tienes completamente claro qué hacer o qué cambios benefician más a un espacio, te orientamos con ideas y recomendaciones para sacar el máximo partido a cada estancia.',
+  },
+  {
+    titulo: 'Limpieza y satisfacción final',
+    texto:
+      'Al terminar, recogemos y limpiamos todo el espacio de trabajo. Solo notarás que hemos estado allí por la satisfacción de ver tus paredes exactamente como las querías.',
+  },
+] as const;
+
 export default function PaginaInicio() {
   return (
     <>
@@ -184,6 +207,31 @@ export default function PaginaInicio() {
           >
             Pide presupuesto sin compromiso
           </Link>
+        </div>
+      </section>
+
+      <section className="border-t border-titulo/10 bg-acento-claro/40">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-2xl font-semibold text-titulo sm:text-3xl">
+              ¿Cómo trabajamos?
+            </h2>
+            <p className="mt-2 text-texto/70">
+              Un proceso directo, transparente y enfocado en tu tranquilidad.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {PROCESO.map((paso, indice) => (
+              <div key={paso.titulo}>
+                <span className="text-sm font-semibold text-acento">
+                  {String(indice + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-2 font-semibold text-titulo">{paso.titulo}</h3>
+                <p className="mt-2 text-sm text-texto/70">{paso.texto}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
