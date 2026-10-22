@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { Outfit, Playfair_Display } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import { site } from '@/lib/site';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { BotonWhatsapp } from '@/components/layout/boton-whatsapp';
+import { AvisoCookies } from '@/components/layout/aviso-cookies';
 import './globals.css';
 
 /* Fuentes servidas desde el propio dominio (next/font las descarga en build,
@@ -54,6 +56,8 @@ export default function RaizLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <BotonWhatsapp />
+        <AvisoCookies />
+        <Analytics />
       </body>
     </html>
   );

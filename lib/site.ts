@@ -27,6 +27,10 @@ export const site = {
 
   /** Enlace directo al formulario de reseña de Google (Perfil de Empresa). */
   enlaceResena: 'https://g.page/r/Ce4OITvQ4rHjEBM/review',
+
+  /** Proyecto de Microsoft Clarity. Solo se carga si el visitante acepta
+   *  las cookies (ver lib/consentimiento.ts). */
+  clarityId: 'z1rxdj564f',
 } as const;
 
 /**

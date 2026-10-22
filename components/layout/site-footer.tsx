@@ -37,6 +37,9 @@ export function SiteFooter() {
           <Link href="/contacto" className="hover:text-titulo">
             Contacto
           </Link>
+          <Link href="/cookies" className="hover:text-titulo">
+            Cookies
+          </Link>
         </nav>
 
         <div className="text-sm">
