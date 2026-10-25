@@ -28,25 +28,31 @@ export const site = {
   zona: 'Granada y alrededores',
 
   /**
-   * Municipios del área metropolitana para la página de zonas. Es la
-   * corona de pueblos pegados a Granada, no una lista confirmada uno a uno
-   * con Emilio: si no trabaja en alguno, se quita de aquí y desaparece de
-   * la web y de los datos para Google.
+   * Municipios de la página de zonas: los mismos, y en el mismo orden, que
+   * la "Zona de servicio" de su Perfil de Empresa en Google (copiados el
+   * 26/10/2026). Si se cambia allí, se cambia aquí: Google confía más en
+   * un negocio cuando la web y la ficha dicen lo mismo.
    */
   municipios: [
     'Granada',
+    'Cájar',
+    'Alfacar',
     'Armilla',
     'Maracena',
-    'Ogíjares',
+    'Jun',
+    'Loja',
+    'Pulianillas',
+    'Víznar',
     'La Zubia',
-    'Huétor Vega',
-    'Cájar',
-    'Las Gabias',
-    'Churriana de la Vega',
-    'Alhendín',
-    'Albolote',
-    'Atarfe',
     'Peligros',
+    'Santa Fe',
+    'Ogíjares',
+    'Las Gabias',
+    'Los Olivos',
+    'Güevéjar',
+    'Salobreña',
+    'Almuñécar',
+    'Churriana de la Vega',
   ],
 
   /** Enlace directo al formulario de reseña de Google (Perfil de Empresa). */
