@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { site, whatsappUrl } from '@/lib/site';
+import { SERVICIOS } from '@/content/servicios';
 
 export function SiteFooter() {
   return (
@@ -30,6 +31,14 @@ export function SiteFooter() {
           </Link>
           <Link href="/#servicios" className="hover:text-titulo">
             Servicios
+          </Link>
+          {SERVICIOS.map((servicio) => (
+            <Link key={servicio.slug} href={`/servicios/${servicio.slug}`} className="pl-3 text-texto/70 hover:text-titulo">
+              {servicio.nombre}
+            </Link>
+          ))}
+          <Link href="/zonas" className="hover:text-titulo">
+            Zonas de trabajo
           </Link>
           <Link href="/sobre-nosotros" className="hover:text-titulo">
             Sobre nosotros

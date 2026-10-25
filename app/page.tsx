@@ -69,9 +69,31 @@ const PROCESO = [
   },
 ] as const;
 
+// Ficha del negocio para Google: qué es, a qué se dedica y dónde trabaja.
+// Sin dirección: Emilio va a casa del cliente, no tiene local abierto.
+const DATOS_GOOGLE = {
+  '@context': 'https://schema.org',
+  '@type': 'HousePainter',
+  name: site.nombre,
+  description: site.descripcion,
+  url: site.url,
+  image: `${site.url}/images/emilio-retrato.png`,
+  telephone: `+${site.whatsapp}`,
+  email: site.email,
+  areaServed: site.municipios.map((municipio) => ({ '@type': 'City', name: municipio })),
+  makesOffer: SERVICIOS.map((servicio) => ({
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: servicio.titulo, url: `${site.url}/servicios/${servicio.slug}` },
+  })),
+};
+
 export default function PaginaInicio() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(DATOS_GOOGLE) }}
+      />
       <section className="border-b border-titulo/10">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pt-12 pb-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:pt-20">
           <div>
@@ -179,13 +201,21 @@ export default function PaginaInicio() {
 
             <div className="mt-8 grid gap-6">
               {SERVICIOS.map((servicio) => (
-                <div
+                <Link
                   key={servicio.slug}
-                  className="rounded-lg border border-texto/10 p-6"
+                  href={`/servicios/${servicio.slug}`}
+                  className="group rounded-lg border border-texto/10 p-6 transition-colors hover:border-acento"
                 >
                   <h3 className="font-semibold text-titulo">{servicio.nombre}</h3>
                   <p className="mt-2 text-sm text-texto/70">{servicio.resumen}</p>
-                </div>
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-acento">
+                    Ver más
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+                      <path d="M5 12h14" />
+                      <path d="m13 6 6 6-6 6" />
+                    </svg>
+                  </span>
+                </Link>
               ))}
             </div>
           </div>

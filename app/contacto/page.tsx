@@ -5,6 +5,7 @@ import { site, whatsappUrl } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Contacto',
   description: `Escríbenos y te contamos cómo abordamos tu proyecto de pintura o reparación en ${site.zona}.`,
+  alternates: { canonical: '/contacto' },
 };
 
 export default function PaginaContacto() {

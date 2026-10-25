@@ -6,6 +6,9 @@ import { SOBRE_NOSOTROS } from '@/content/equipo';
 export const metadata: Metadata = {
   title: 'Sobre nosotros',
   description: `Quién es ${site.nombre}, pintores en ${site.zona}.`,
+  // Sin esto heredaba el canonical "/" del layout y Google la tomaba por
+  // una copia de la portada.
+  alternates: { canonical: '/sobre-nosotros' },
 };
 
 export default function PaginaSobreNosotros() {
