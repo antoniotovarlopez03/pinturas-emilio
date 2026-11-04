@@ -9,6 +9,7 @@ import { site } from '@/lib/site';
 const ENLACES = [
   { href: '/', etiqueta: 'Inicio' },
   { href: '/#servicios', etiqueta: 'Servicios' },
+  { href: '/zonas', etiqueta: 'Zonas' },
   { href: '/sobre-nosotros', etiqueta: 'Sobre nosotros' },
   { href: '/contacto', etiqueta: 'Contacto' },
 ];
@@ -51,7 +52,7 @@ export function SiteHeader() {
 
         <nav
           aria-label="Principal"
-          className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"
+          className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm sm:gap-x-6"
         >
           {ENLACES.map((enlace) => {
             const esAncla = enlace.href.startsWith('/#');

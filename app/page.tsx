@@ -69,6 +69,38 @@ const PROCESO = [
   },
 ] as const;
 
+// Solo respuestas que la web ya afirma en otra parte (el proceso, los servicios
+// y la zona): nada de plazos ni precios, que Emilio no ha confirmado.
+const PREGUNTAS = [
+  {
+    pregunta: '¿El presupuesto tiene algún coste?',
+    respuesta:
+      'Ninguno. Valoramos lo que quieres pintar o reparar y te damos un presupuesto detallado sin compromiso: tú decides si seguimos adelante.',
+  },
+  {
+    pregunta: '¿Tengo que comprar yo la pintura o los materiales?',
+    respuesta: 'No. Llevamos todos los materiales necesarios para hacer el trabajo.',
+  },
+  {
+    pregunta: '¿Dejáis la casa limpia al terminar?',
+    respuesta:
+      'Sí. Protegemos muebles y suelos mientras trabajamos y, al acabar, recogemos y limpiamos todo el espacio.',
+  },
+  {
+    pregunta: '¿Pintáis también comunidades y locales?',
+    respuesta:
+      'Sí. Trabajamos en pisos, casas, comunidades de vecinos y locales, tanto en interiores como en fachadas.',
+  },
+  {
+    pregunta: '¿En qué zonas trabajáis?',
+    respuesta: `En Granada capital y en ${site.municipios.slice(1, 6).join(', ')} y el resto de pueblos de alrededor.`,
+  },
+  {
+    pregunta: '¿Cómo pido presupuesto?',
+    respuesta: `Escríbenos por WhatsApp al ${site.whatsappVisible} o desde el formulario de contacto, cuéntanos qué necesitas y te decimos cómo lo hacemos.`,
+  },
+] as const;
+
 // Ficha del negocio para Google: qué es, a qué se dedica y dónde trabaja.
 // Sin dirección: Emilio va a casa del cliente, no tiene local abierto.
 const DATOS_GOOGLE = {
@@ -87,12 +119,26 @@ const DATOS_GOOGLE = {
   })),
 };
 
+const DATOS_PREGUNTAS = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: PREGUNTAS.map(({ pregunta, respuesta }) => ({
+    '@type': 'Question',
+    name: pregunta,
+    acceptedAnswer: { '@type': 'Answer', text: respuesta },
+  })),
+};
+
 export default function PaginaInicio() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(DATOS_GOOGLE) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(DATOS_PREGUNTAS) }}
       />
       <section className="border-b border-titulo/10">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pt-12 pb-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:pt-20">
@@ -278,6 +324,37 @@ export default function PaginaInicio() {
       </section>
 
       <AntesDespues />
+
+      <section id="preguntas" className="border-t border-titulo/10">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+          <h2 className="text-center text-2xl font-semibold text-titulo sm:text-3xl">
+            Preguntas frecuentes
+          </h2>
+          <div className="mt-10 divide-y divide-titulo/10 rounded-lg border border-titulo/10">
+            {PREGUNTAS.map(({ pregunta, respuesta }) => (
+              <details key={pregunta} className="group px-6 py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-titulo">
+                  {pregunta}
+                  <span
+                    aria-hidden="true"
+                    className="text-xl text-acento transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm text-texto/70">{respuesta}</p>
+              </details>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-sm text-texto/70">
+            ¿Vives fuera de Granada capital?{' '}
+            <Link href="/zonas" className="font-medium text-acento hover:underline">
+              Mira todas las zonas
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6">
         <h2 className="text-2xl font-semibold text-titulo sm:text-3xl">
