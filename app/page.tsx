@@ -70,7 +70,7 @@ const PROCESO = [
 ] as const;
 
 // Solo respuestas que la web ya afirma en otra parte (el proceso, los servicios
-// y la zona): nada de plazos ni precios, que Emilio no ha confirmado.
+// y el contacto): nada de plazos, precios ni zonas, que Emilio no ha confirmado.
 const PREGUNTAS = [
   {
     pregunta: '¿El presupuesto tiene algún coste?',
@@ -90,10 +90,6 @@ const PREGUNTAS = [
     pregunta: '¿Pintáis también comunidades y locales?',
     respuesta:
       'Sí. Trabajamos en pisos, casas, comunidades de vecinos y locales, tanto en interiores como en fachadas.',
-  },
-  {
-    pregunta: '¿En qué zonas trabajáis?',
-    respuesta: `En Granada capital y en ${site.municipios.slice(1, 6).join(', ')} y el resto de pueblos de alrededor.`,
   },
   {
     pregunta: '¿Cómo pido presupuesto?',
@@ -346,13 +342,6 @@ export default function PaginaInicio() {
               </details>
             ))}
           </div>
-          <p className="mt-6 text-center text-sm text-texto/70">
-            ¿Vives fuera de Granada capital?{' '}
-            <Link href="/zonas" className="font-medium text-acento hover:underline">
-              Mira todas las zonas
-            </Link>
-            .
-          </p>
         </div>
       </section>
 
