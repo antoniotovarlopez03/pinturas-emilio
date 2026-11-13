@@ -17,8 +17,8 @@ const nextConfig: NextConfig = {
     qualities: [75, 90],
   },
 
-  // Cabeceras de seguridad básicas. La web no usa scripts de terceros ni
-  // analítica, así que la CSP puede ser estricta de verdad.
+  // Cabeceras de seguridad básicas. No hay CSP: Google Tag Manager y Clarity
+  // cargan scripts de terceros que una CSP estricta bloquearía.
   async headers() {
     return [
       {

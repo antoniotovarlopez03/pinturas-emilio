@@ -3,7 +3,13 @@
 import { site } from '@/lib/site';
 
 /**
- * Consentimiento de cookies para Microsoft Clarity.
+ * Consentimiento de cookies para Microsoft Clarity y Google Analytics (vía
+ * Google Tag Manager).
+ *
+ * GTM se carga siempre en producción, pero con el modo de consentimiento de
+ * Google en «denegado» (ver app/layout.tsx): mientras no se acepte, Google no
+ * guarda cookies. Al aceptar se manda `consent update` con la analítica
+ * concedida; la publicidad sigue denegada porque la web no tiene anuncios.
  *
  * Clarity graba cómo se mueve la gente por la web (clics, scroll, mapas de
  * calor) y deja cookies propias, así que la LSSI (art. 22.2) obliga a pedir
@@ -17,7 +23,7 @@ import { site } from '@/lib/site';
 
 export type Eleccion = 'aceptadas' | 'rechazadas';
 
-const CLAVE = 'pinturas-emilio-cookies';
+const CLAVE = site.claveCookies;
 
 /** Evento propio para volver a abrir el aviso desde la página de cookies
  *  sin recargar («storage» no avisa a la propia pestaña). */
@@ -28,7 +34,20 @@ type ClarityFn = ((...args: unknown[]) => void) & { q?: unknown[][] };
 declare global {
   interface Window {
     clarity?: ClarityFn;
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
   }
+}
+
+/** Avisa a Google Tag Manager de la elección. `gtag` solo existe en
+ *  producción (lo define el script inicial del layout); en local no hace nada.
+ *  Además se empuja un evento al dataLayer por si en GTM se quiere disparar
+ *  algo justo al aceptar. */
+export function actualizarGoogle(eleccion: Eleccion) {
+  if (typeof window.gtag !== 'function') return;
+  const estado = eleccion === 'aceptadas' ? 'granted' : 'denied';
+  window.gtag('consent', 'update', { analytics_storage: estado });
+  window.dataLayer?.push({ event: 'consentimiento_cookies', analitica: estado });
 }
 
 export function leerEleccion(): Eleccion | null {

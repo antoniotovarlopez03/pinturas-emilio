@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import {
   EVENTO_REABRIR,
+  actualizarGoogle,
   cargarClarity,
   guardarEleccion,
   leerEleccion,
@@ -43,6 +44,7 @@ export function AvisoCookies() {
     const antes = leerEleccion();
     guardarEleccion(eleccion);
     setVisible(false);
+    actualizarGoogle(eleccion);
     if (eleccion === 'aceptadas') cargarClarity();
     else if (antes === 'aceptadas') retirarClarity();
   }
@@ -58,8 +60,9 @@ export function AvisoCookies() {
     >
       <p className="font-display text-lg font-semibold text-titulo">¿Nos ayudas a mejorar la web?</p>
       <p className="mt-2 leading-relaxed">
-        Con tu permiso usamos Microsoft Clarity para ver, de forma anónima, cómo se navega por la
-        web (clics y desplazamiento) y así mejorarla. Si lo rechazas, la web funciona igual.{' '}
+        Con tu permiso usamos Google Analytics y Microsoft Clarity para saber cuántas visitas
+        recibimos y ver, de forma anónima, cómo se navega por la web, y así mejorarla. Si lo
+        rechazas, la web funciona igual.{' '}
         <Link href="/cookies" className="text-titulo underline underline-offset-4">
           Más información
         </Link>
