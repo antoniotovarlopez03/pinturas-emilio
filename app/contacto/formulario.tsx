@@ -1,13 +1,20 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { enviarFormulario, type EstadoEnvio } from './acciones';
 import { mailtoUrl, site, whatsappUrl } from '@/lib/site';
+import { medir } from '@/lib/medicion';
 
 const INICIAL: EstadoEnvio = { estado: 'inicial' };
 
 export function FormularioContacto() {
   const [estado, accion, enviando] = useActionState(enviarFormulario, INICIAL);
+
+  useEffect(() => {
+    if (estado.estado === 'ok') medir('formulario_enviado');
+    else if (estado.estado === 'error' || estado.estado === 'sin-configurar')
+      medir('formulario_error', { motivo: estado.estado });
+  }, [estado]);
 
   if (estado.estado === 'ok') {
     return (

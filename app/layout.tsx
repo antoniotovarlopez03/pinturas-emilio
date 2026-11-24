@@ -7,6 +7,7 @@ import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { BotonWhatsapp } from '@/components/layout/boton-whatsapp';
 import { AvisoCookies } from '@/components/layout/aviso-cookies';
+import { MedicionClics } from '@/components/layout/medicion-clics';
 import './globals.css';
 
 /* Fuentes servidas desde el propio dominio (next/font las descarga en build,
@@ -113,6 +114,7 @@ export default function RaizLayout({
         <SiteFooter />
         <BotonWhatsapp />
         <AvisoCookies />
+        <MedicionClics />
         <Analytics />
       </body>
     </html>
