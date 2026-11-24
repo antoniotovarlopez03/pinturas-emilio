@@ -108,6 +108,8 @@ const DATOS_GOOGLE = {
   image: `${site.url}/images/emilio-retrato.png`,
   telephone: `+${site.whatsapp}`,
   email: site.email,
+  hasMap: site.perfilGoogle,
+  sameAs: [site.perfilGoogle],
   areaServed: site.municipios.map((municipio) => ({ '@type': 'City', name: municipio })),
   makesOffer: SERVICIOS.map((servicio) => ({
     '@type': 'Offer',
@@ -236,9 +238,9 @@ export default function PaginaInicio() {
               Reparamos y pintamos en Granada
             </h2>
             <p className="mt-2 max-w-2xl text-texto/70">
-              Devolvemos la vida a tus paredes con experiencia, calidad y
-              confianza. Presupuesto sin compromiso para tu casa o negocio en
-              Granada y alrededores.
+              Somos una empresa de pintura de Granada: devolvemos la vida a tus
+              paredes con experiencia, calidad y confianza. Presupuesto sin
+              compromiso para tu casa o negocio en Granada y alrededores.
             </p>
 
             <div className="mt-8 grid gap-6">

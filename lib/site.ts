@@ -4,11 +4,12 @@
  */
 export const site = {
   nombre: 'Pinturas Emilio Parra',
-  // Lo que sale en Google: empieza por la búsqueda ("pintor en Granada")
-  // y cabe en ~60 caracteres para que no se corte en el móvil.
-  titulo: 'Pintor en Granada · Presupuesto sin compromiso | Emilio Parra',
+  // Lo que sale en Google: empieza por la búsqueda y cabe en ~60 caracteres.
+  // Search Console (90 días a 24/11/2026): las búsquedas con más impresiones
+  // son "pintores (en) granada" y "empresa de pintura en granada".
+  titulo: 'Pintores en Granada · Empresa de pintura | Emilio Parra',
   descripcion:
-    'Pintor en Granada y alrededores: pintura interior y de fachadas, alisado y quitar gotelé, y reparación de grietas. Trabajo limpio y presupuesto sin compromiso.',
+    'Empresa de pintura en Granada y alrededores: pintores para interiores y fachadas, alisado y quitar gotelé, y reparación de grietas. Presupuesto sin compromiso.',
 
   // www, no el dominio pelado: el ápex redirige (308) a este en Vercel,
   // y esa es la URL de la que salen el canonical y el og:image.
@@ -57,6 +58,8 @@ export const site = {
 
   /** Enlace directo al formulario de reseña de Google (Perfil de Empresa). */
   enlaceResena: 'https://g.page/r/Ce4OITvQ4rHjEBM/review',
+  /** El Perfil de Empresa en Google (mismo enlace, sin /review). */
+  perfilGoogle: 'https://g.page/r/Ce4OITvQ4rHjEBM',
 
   /** Proyecto de Microsoft Clarity. Solo se carga si el visitante acepta
    *  las cookies (ver lib/consentimiento.ts). */
